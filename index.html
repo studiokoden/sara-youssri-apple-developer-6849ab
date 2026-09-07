@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScG8AKZOKViY0T_CFJZGJPgrgX-lipdpmamvpH-NSXzw&amp;s=10">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Sara Youssri - Developer Page</title>
+
+  <script>
+    (function () {
+      var appId = new URLSearchParams(window.location.search).get('app');
+      if (appId) document.documentElement.classList.add('game-host-mode');
+    }());
+  </script>
+
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --bg: #f5f7fb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .game-host {
+      display: none;
+    }
+
+    html.game-host-mode,
+    html.game-host-mode body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    html.game-host-mode .developer-page {
+      display: none;
+    }
+
+    html.game-host-mode .game-host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    .game-host-status {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #fff;
+      background: #000;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .game-host-status[hidden] {
+      display: none;
+    }
+
+    .game-host-frame {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #000;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .dev-icon {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      background: #fff;
+    }
+
+    .dev-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 34px;
+    }
+
+    .promo {
+      margin-top: 12px;
+      font-size: 18px;
+      color: var(--muted);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .promo a { color: inherit; }
+
+    .description {
+      background: var(--card);
+      padding: 36px;
+      border-radius: var(--radius);
+      line-height: 1.8;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .description p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #374151;
+      line-height: 40px;
+    }
+
+    .games-title {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 26px;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .game-card {
+      display: block;
+      text-decoration: none;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: inherit;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.08);
+    }
+
+    .game-icon {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      background: #e5e7eb;
+      margin-bottom: 12px;
+    }
+
+    .game-icon-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      object-fit: cover;
+      margin-bottom: 12px;
+      background: #e5e7eb;
+    }
+
+    .game-card h3 {
+      margin: 10px 0 4px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main id="game-host" class="game-host" aria-label="Hosted game">
+    <div id="game-host-status" class="game-host-status">Opening game…</div>
+  </main>
+
+  <div class="container developer-page">
+    <div class="header">
+      <div class="dev-icon">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScG8AKZOKViY0T_CFJZGJPgrgX-lipdpmamvpH-NSXzw&amp;s=10" alt="Developer Icon">
+      </div>
+      <h1>Sara Youssri</h1>
+      <div class="promo">Developer Page</div>
+    </div>
+
+    <div class="description">
+      <p>
+        We are an independent mobile game developer focused on creating immersive,
+        accessible, and high-quality gaming experiences for players around the world.
+        Our work is driven by a passion for simplicity, fun, and thoughtful design,
+        ensuring that every game we publish feels intuitive while remaining engaging
+        over time. We believe that great mobile games should be easy to pick up,
+        enjoyable across short or long play sessions, and optimized to run smoothly
+        on a wide range of Apple devices without compromising visual quality or
+        performance.
+      </p>
+
+      <p>
+        Each game is carefully designed from concept to release, with attention given
+        to gameplay mechanics, user experience, visual identity, and overall polish.
+        We focus on balanced progression systems, responsive controls, and clean
+        interfaces that make gameplay feel natural and rewarding. Our development
+        process emphasizes testing, iteration, and continuous refinement, allowing
+        us to deliver games that are stable, enjoyable, and aligned with player
+        expectations across different age groups and skill levels.
+      </p>
+
+      <p>
+        Player satisfaction is at the core of everything we do. We actively listen
+        to feedback, monitor performance, and release updates that improve gameplay,
+        fix issues, and introduce meaningful enhancements. Our long-term mission is
+        to build a trusted developer presence on the Apple App Store by publishing games that
+        players can confidently download, recommend, and return to regularly. By
+        combining creativity, consistency, and respect for our audience, we aim to
+        create lasting entertainment experiences that stand out in the mobile gaming
+        ecosystem.
+      </p>
+      <p>
+        <strong>Contact Us</strong><br>
+        If you have any questions or concerns, you can contact us at:
+        <br>
+        <a href="mailto:contact@lowerspicez.co.uk">contact@lowerspicez.co.uk</a>
+      </p>
+    </div>
+
+    <h2 class="games-title">Published Games</h2>
+    <div class="games-grid">
+      <div class="game-card">
+        <div class="game-icon"></div>
+        <h3>Coming Soon</h3>
+      </div>
+    </div>
+
+    <footer>© 2026 Sara Youssri • Developer Page</footer>
+  </div>
+
+  <script>
+    (function () {
+      var rawAppId = new URLSearchParams(window.location.search).get('app');
+      if (!rawAppId) return;
+
+      var appId = rawAppId.trim();
+      var host = document.getElementById('game-host');
+      var status = document.getElementById('game-host-status');
+      if (!host || !status) return;
+
+      if (!/^\d{1,18}$/.test(appId)) {
+        status.textContent = 'Invalid game ID.';
+        return;
+      }
+
+      var frame = document.createElement('iframe');
+      frame.className = 'game-host-frame';
+      frame.src = '/dist-app/' + encodeURIComponent(appId);
+      frame.title = 'Playhop game ' + appId;
+      frame.allow = 'accelerometer; autoplay; clipboard-read; clipboard-write; encrypted-media; fullscreen; gamepad; gyroscope; web-share';
+      frame.setAttribute('allowfullscreen', '');
+      status.hidden = true;
+      host.appendChild(frame);
+      document.title = 'Game ' + appId;
+    }());
+  </script>
+</body>
+</html>
